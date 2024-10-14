@@ -332,30 +332,10 @@ function main(config) {
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Microsoft.list",
       "path": "./rule-providers/Microsoft.list"
     },
-    "Private_ip": {
-      ...ruleProviderCommon,
-      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Private_ip.list",
-      "path": "./rule-providers/Private_ip.list"
-    },
     "ProxyGFW": {
       ...ruleProviderCommon,
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/ProxyGFW.list",
       "path": "./rule-providers/ProxyGFW.list"
-    },
-    "Cn": {
-      ...ruleProviderCommon,
-      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Cn.list",
-      "path": "./rule-providers/Cn.list"
-    },
-    "Cn_ip": {
-      ...ruleProviderCommon,
-      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Cn_ip.list",
-      "path": "./rule-providers/Cn_ip.list"
-    },
-    "NotCn": {
-      ...ruleProviderCommon,
-      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/NotCn.list",
-      "path": "./rule-providers/NotCn.list"
     },
   };
 
