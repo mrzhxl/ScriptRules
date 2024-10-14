@@ -378,14 +378,14 @@ function main(config) {
     "RULE-SET,Steam,🎮 游戏平台",
     "RULE-SET,Epic,🎮 游戏平台",
     "RULE-SET,Game,🎮 游戏平台",
-    "RULE-SET,OneDrive,Ⓜ️ 微软服务",
     "RULE-SET,Github,🐱 GitHub",
+    "RULE-SET,OneDrive,Ⓜ️ 微软服务",
     "RULE-SET,Microsoft,Ⓜ️ 微软服务",
-    "RULE-SET,ProxyGFW,🌍 国外网站",
-    "RULE-SET,NotCn,🌍 国外网站",
     "RULE-SET,Cn,DIRECT",
     "RULE-SET,Cn_ip,DIRECT",
     "RULE-SET,Private_ip,DIRECT",
+    "RULE-SET,ProxyGFW,🌍 国外网站",
+    "RULE-SET,NotCn,🌍 国外网站",
     "MATCH,🐟 漏网之鱼"
   ];
 
