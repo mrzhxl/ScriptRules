@@ -1,4 +1,4 @@
-// 最后更新时间: 2024-10-14
+// 最后更新时间: 2024-10-15
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -64,7 +64,7 @@ function main(config) {
   // 覆盖 geodata 配置
   config["geodata-mode"] = true;
   config["geox-url"] = {
-    "geoip": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat",
+    "geoip": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat",
     "geosite": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat",
     "mmdb": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb",
     "asn": "https://mirror.ghproxy.com/https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
@@ -362,8 +362,7 @@ function main(config) {
     "RULE-SET,OneDrive,Ⓜ️ 微软服务",
     "RULE-SET,Microsoft,Ⓜ️ 微软服务",
     "GEOSITE,cn,DIRECT",
-    "GEOIP,cn,DIRECT",    
-    "GEOIP,private,DIRECT",
+    "GEOIP,CN,DIRECT",    
     "RULE-SET,ProxyGFW,🌍 国外网站",
     "GEOSITE,geolocation-!cn,🌍 国外网站",
     "MATCH,🐟 漏网之鱼"
