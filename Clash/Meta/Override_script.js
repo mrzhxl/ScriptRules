@@ -1,4 +1,4 @@
-// 最后更新时间: 2024-10-15
+// 最后更新时间: 2024-10-17
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -259,7 +259,7 @@ function main(config) {
     },
     "AWAvenueAdsRule": {
       "type": "http",
-      "behavior": "domain",
+      "behavior": "classical",
       "format": "yaml",
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/AWAvenueAdsRule.yaml",
       "path": "./rule-providers/AWAvenueAdsRule.yaml"
