@@ -257,6 +257,13 @@ function main(config) {
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanEasyList.list",
       "path": "./rule-providers/BanEasyList.list"
     },
+    "AWAvenueAdsRule": {
+      "type": "http",
+      "behavior": "domain",
+      "format": "yaml",
+      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/AWAvenueAdsRule.yaml",
+      "path": "./rule-providers/AWAvenueAdsRule.yaml"
+    },
     "Apple": {
       ...ruleProviderCommon,
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Apple.list",
@@ -346,6 +353,7 @@ function main(config) {
     "RULE-SET,BanEasyListChina,🛑 广告拦截",
     "RULE-SET,BanEasyPrivacy,🛑 广告拦截",
     "RULE-SET,BanEasyList,🛑 广告拦截",
+    "RULE-SET,AWAvenueAdsRule,🛑 广告拦截",
     "RULE-SET,OpenAI,💬 AI",
     "RULE-SET,Gemini,💬 AI",
     "RULE-SET,Copilot,💬 AI",
