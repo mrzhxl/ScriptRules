@@ -258,8 +258,7 @@ function main(config) {
       "path": "./rule-providers/BanEasyList.list"
     },
     "AWAvenueAdsRule": {
-      "type": "http",
-      "behavior": "classical",
+      ...ruleProviderCommon,
       "format": "yaml",
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/AWAvenueAdsRule.yaml",
       "path": "./rule-providers/AWAvenueAdsRule.yaml"
