@@ -1,0 +1,101 @@
+name: updateRule
+
+on:
+  # repository_dispatch:
+  #   types: [update-rules]  
+  workflow_dispatch:
+  schedule:
+    - cron: "0 14-23,0-1 * * *" # 22:00-10:00 UTC+8
+  push:               
+    branches:
+      - main
+jobs:
+  Update-Rule:
+    runs-on: ubuntu-latest
+    env:
+      TZ: 'Asia/Shanghai'
+    
+    steps: 
+    - name: Checkout target repository
+      uses: actions/checkout@v4.1.0
+      with:
+        repository: mrzhxl/ScriptRules
+        path: rules
+    - name: Download files
+      run: |
+        mkdir -p rules/Clash/Meta/Rules
+        declare -A urls=(
+          # 苹果
+          ["Apple.list"]="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list"
+          # 谷歌
+          ["YouTube.list"]="https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list"
+          ["Google.list"]="https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Google.list"
+          # AI
+          ["OpenAI.list"]="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list"
+          ["Gemini.list"]="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list"
+          ["Copilot.list"]="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.list"
+          ["Claude.list"]="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list"
+          # Github
+          ["Github.list"]="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list"
+          # 微软
+          ["OneDrive.list"]="https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OneDrive.list"
+          ["Microsoft.list"]="https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Microsoft.list"
+          # GFW
+          ["ProxyGFW.list"]="https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list"
+          # 游戏规则 
+          ["Game.list"]="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.list"
+          ["Steam.list"]="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Steam/Steam.list"
+          ["Epic.list"]="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Epic/Epic.list"
+          # telegram
+          ["Telegram.list"]="https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/classical/telegram.list"
+          ["Telegram_ip.list"]="https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/classical/telegram.list"
+          # 广告
+          ["BanAD.list"]="https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list"
+          ["BanProgramAD.list"]="https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list"
+          ["BanEasyListChina.list"]="https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list"
+          ["BanEasyPrivacy.list"]="https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list"
+          ["BanEasyList.list"]="https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list"
+          ["AWAvenueAdsRule.yaml"]="https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash-classical.yaml"
+        )
+
+        for file in "${!urls[@]}"; do
+          curl -L -o rules/Clash/Meta/Rules/$file "${urls[$file]}"
+        done
+    # 适配规则
+    - name: Edit rules
+      run: |
+        cd rules/Clash/Meta/Rules/
+        for file in *.list; do
+          sed -i -e 's/, /,/g' "$file"
+          # 如果为IP规则且不包含no-resolve 则添加no-resolve
+          awk '/^IP-/ && !/,no-resolve/ {print $0",no-resolve"; next} {print}' "$file" > tmpfile
+          
+          # 处理IPv6的CIDR,严格匹配IPv6格式,并将其自动替换为IP-CIDR6
+          awk '{
+            # 正则匹配IPv6地址格式(多个冒号,并且没有"."的IPv4形式)
+            if ($0 ~ /^IP-CIDR,[0-9a-fA-F:]+\/[0-9]+/) {
+              gsub("IP-CIDR,", "IP-CIDR6,");
+            }
+            print
+          }' tmpfile > "$file"
+          rm tmpfile
+        done
+    ###### Commit
+    - name: Add and Commits
+      run: |
+        cd rules
+        if [[ -n $(git status -s) ]]; then
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Auto Update $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M')"
+          git push origin main
+        else
+          echo "No changes to commit."
+        fi
+    - name: Cleanup Workflow
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+        # token: ${{ secrets.TOKEN }}
+        retain_days: 0
+        keep_minimum_runs: 2
