@@ -17,7 +17,12 @@ const groupBaseOption = {
 
 // 地区分组通用配置
 const regionBaseOption = {
-  "type": "url-test",
+  // 自动选择
+  // "type": "url-test", 
+  // 负载均衡
+  "type": "load-balance",
+  // round-robin 轮训；consistent-hashing 目的地址hash
+  "strategy": "round-robin",
   "tolerance": 0,
   "include-all": true,
 }
