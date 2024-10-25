@@ -1,4 +1,4 @@
-// 最后更新时间: 2024-10-18
+// 最后更新时间: 2024-10-25
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -242,37 +242,6 @@ function main(config) {
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Advertising.list",
       "path": "./rule-providers/Advertising.list"
     },
-    // "BanAD": {
-    //   ...ruleProviderCommon,
-    //   "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanAD.list",
-    //   "path": "./rule-providers/BanAD.list"
-    // },
-    // "BanProgramAD": {
-    //   ...ruleProviderCommon,
-    //   "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanProgramAD.list",
-    //   "path": "./rule-providers/BanProgramAD.list"
-    // },
-    // "BanEasyListChina": {
-    //   ...ruleProviderCommon,
-    //   "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanEasyListChina.list",
-    //   "path": "./rule-providers/BanEasyListChina.list"
-    // },
-    // "BanEasyPrivacy": {
-    //   ...ruleProviderCommon,
-    //   "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanEasyPrivacy.list",
-    //   "path": "./rule-providers/BanEasyPrivacy.list"
-    // },
-    // "BanEasyList": {
-    //   ...ruleProviderCommon,
-    //   "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanEasyList.list",
-    //   "path": "./rule-providers/BanEasyList.list"
-    // },
-    // "AWAvenueAdsRule": {
-    //   ...ruleProviderCommon,
-    //   "format": "yaml",
-    //   "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/AWAvenueAdsRule.yaml",
-    //   "path": "./rule-providers/AWAvenueAdsRule.yaml"
-    // },
     "Apple": {
       ...ruleProviderCommon,
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Apple.list",
@@ -358,12 +327,6 @@ function main(config) {
   // 覆盖规则
   config["rules"] = [
     "RULE-SET,Advertising,🛑 广告拦截",
-    // "RULE-SET,BanAD,🛑 广告拦截",
-    // "RULE-SET,BanProgramAD,🛑 广告拦截",
-    // "RULE-SET,BanEasyListChina,🛑 广告拦截",
-    // "RULE-SET,BanEasyPrivacy,🛑 广告拦截",
-    // "RULE-SET,BanEasyList,🛑 广告拦截",
-    // "RULE-SET,AWAvenueAdsRule,🛑 广告拦截",
     "RULE-SET,OpenAI,💬 AI",
     "RULE-SET,Gemini,💬 AI",
     "RULE-SET,Copilot,💬 AI",
