@@ -136,58 +136,58 @@ function main(config) {
     },
     {
       ...groupBaseOption,
-      ...proxiesNode,
       "name": "💬 AI",
       "type": "select",
+      "proxies": proxiesNode,
       "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png"
     },
     {
       ...groupBaseOption,
-      ...proxiesNode,
       "name": "🐱 GitHub",
       "type": "select",
+      "proxies": proxiesNode,
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png"
     },
     {
       ...groupBaseOption,
-      ...proxiesNode,
       "name": "🔍 谷歌服务",
       "type": "select",
+      "proxies": proxiesNode,
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png"
     },
     {
       ...groupBaseOption,
-      ...proxiesNode,
       "name": "🍎 苹果服务",
       "type": "select",
+      "proxies": proxiesNode,
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png"
     },
     {
       ...groupBaseOption,
-      ...proxiesNode,
       "name": "Ⓜ️ 微软服务",
       "type": "select",
+      "proxies": proxiesNode,
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png"
     },
     {
       ...groupBaseOption,
-      ...proxiesNode,
       "name": "📱 电报消息",
       "type": "select",
+      "proxies": proxiesNode,
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png"
     },
     {
       ...groupBaseOption,
-      ...proxiesNode,
       "name": "🌍 国外网站",
       "type": "select",
+      "proxies": proxiesNode,
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
     },
     {
       ...groupBaseOption,
-      ...proxiesNode,
       "name": "🎮 游戏平台",
       "type": "select",
+      "proxies": proxiesNode,
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png"
     },
     {
@@ -199,9 +199,9 @@ function main(config) {
     },
     {
       ...groupBaseOption,
-      ...proxiesNode,
       "name": "🐟 漏网之鱼",
       "type": "select",
+      "proxies": proxiesNode,
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png"
     },
     // 地区分组
@@ -253,6 +253,13 @@ function main(config) {
       "name": "🇺🇸 美国节点",
       "filter": "(?i)🇺🇸|美国|(\b(US|United States)\b)",
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
+    },
+    {
+      ...groupBaseOption,
+      ...regionBaseOption,
+      "name": "🇬🇧 英国节点",
+      "filter": "(?i)🇬🇧|英国|(\b(UK|United Kingdom)\b)",
+      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
     },
     {
       ...groupBaseOption,
