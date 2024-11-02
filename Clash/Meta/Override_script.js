@@ -1,4 +1,4 @@
-// 最后更新时间: 2024-10-28
+// 最后更新时间: 2024-11-02
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -253,13 +253,6 @@ function main(config) {
       "name": "🇺🇸 美国节点",
       "filter": "(?i)🇺🇸|美国|(\b(US|United States)\b)",
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
-    },
-    {
-      ...groupBaseOption,
-      ...regionBaseOption,
-      "name": "🇬🇧 英国节点",
-      "filter": "(?i)🇬🇧|英国|(\b(UK|United Kingdom)\b)",
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
     },
     {
       ...groupBaseOption,
