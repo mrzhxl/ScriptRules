@@ -255,6 +255,13 @@ function main(config) {
       "name": "🇬🇧 英国节点",
       "filter": "(?i)🇬🇧|英国|(\b(UK|United Kingdom)\b)",
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
+    },
+    {
+      ...groupBaseOption,
+      ...regionBaseOption,
+      "name": "🐂 自建节点",
+      "filter": "(?i)自建|(\b(self|(zijian))\b)",
+      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Ox.png"
     }
 
   ];
