@@ -38,6 +38,7 @@ const proxiesNode = [
   "🇰🇷 韩国节点",
   "🇺🇸 美国节点",
   "🇬🇧 英国节点",
+  "🐂 自建节点",
   "DIRECT"
 ];
 
@@ -260,7 +261,7 @@ function main(config) {
       ...groupBaseOption,
       ...regionBaseOption,
       "name": "🐂 自建节点",
-      "filter": "(?i)自建|(\b(self|(zijian))\b)",
+      "filter": "(?i)自建|self|(\b(Self|Self-built)\b)",
       "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Ox.png"
     }
 
