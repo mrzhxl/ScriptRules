@@ -42,6 +42,174 @@ const proxiesNode = [
   "DIRECT"
 ];
 
+// 策略组
+proxyGroups = [
+  {
+    ...groupBaseOption,
+    "name": "🚀 手动切换",
+    "type": "select",
+    "include-all": true,
+    "exclude-filter": "(?i)应急|剩余|过期",
+    "proxies": ["♻️ 自动切换"],
+    "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "♻️ 自动切换",
+    "type": "url-test",
+    "tolerance": 50,
+    "include-all": true,
+    "exclude-filter": "(?i).*\\*.*|应急|剩余|过期",
+    "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "💬 AI",
+    "type": "select",
+    "proxies": proxiesNode,
+    "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "🐱 GitHub",
+    "type": "select",
+    "proxies": proxiesNode,
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "🔍 谷歌服务",
+    "type": "select",
+    "proxies": proxiesNode,
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "🍎 苹果服务",
+    "type": "select",
+    "proxies": proxiesNode,
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "Ⓜ️ 微软服务",
+    "type": "select",
+    "proxies": proxiesNode,
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "📱 电报消息",
+    "type": "select",
+    "proxies": proxiesNode,
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "🌍 国外网站",
+    "type": "select",
+    "proxies": proxiesNode,
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "🎮 游戏平台",
+    "type": "select",
+    "proxies": proxiesNode,
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "🛑 广告拦截",
+    "type": "select",
+    "proxies": ["REJECT", "DIRECT"],
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "🐟 漏网之鱼",
+    "type": "select",
+    "proxies": proxiesNode,
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png"
+  },
+
+];
+
+// 地区分组
+proxyRegion = [
+  {
+    ...groupBaseOption,
+    ...regionBaseOption,
+    "name": "🇭🇰 香港节点",
+    "filter": "(?i)🇭🇰|香港|(\b(HK|Hong)\b)",
+    "proxies": ["DIRECT"],
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
+  },
+  {
+    ...groupBaseOption,
+    ...regionBaseOption,
+    "name": "🇼🇸 台湾节点",
+    "filter": "(?i)🇨🇳｜🇼🇸|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)",
+    "proxies": ["DIRECT"],
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
+  },
+  {
+    ...groupBaseOption,
+    ...regionBaseOption,
+    "name": "🇯🇵 日本节点",
+    "filter": "(?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)",
+    "proxies": ["DIRECT"],
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
+  },
+  {
+    ...groupBaseOption,
+    ...regionBaseOption,
+    "name": "🇸🇬 新加坡节点",
+    "filter": "(?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)",
+    "proxies": ["DIRECT"],
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
+  },
+  {
+    ...groupBaseOption,
+    ...regionBaseOption,
+    "name": "🇲🇾 马来西亚节点",
+    "filter": "(?i)🇲🇾|马来西亚|马|(\b(MY|Malaysia)\b)",
+    "proxies": ["DIRECT"],
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Malaysia.png"
+  },
+  {
+    ...groupBaseOption,
+    ...regionBaseOption,
+    "name": "🇰🇷 韩国节点",
+    "filter": "(?i)🇰🇷|韩国|(\b(KR|Korea)\b)",
+    "proxies": ["DIRECT"],
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
+  },
+  {
+    ...groupBaseOption,
+    ...regionBaseOption,
+    "name": "🇺🇸 美国节点",
+    "filter": "(?i)🇺🇸|美国|(\b(US|United States)\b)",
+    "proxies": ["DIRECT"],
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
+  },
+  {
+    ...groupBaseOption,
+    ...regionBaseOption,
+    "name": "🇬🇧 英国节点",
+    "filter": "(?i)🇬🇧|英国|(\b(UK|United Kingdom)\b)",
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
+  },
+  {
+    ...groupBaseOption,
+    ...regionBaseOption,
+    "name": "🐂 自建节点",
+    "filter": "(?i)自建|self|(\b(Self|Self-built)\b)",
+    "proxies": ["DIRECT"],
+    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Ox.png"
+  }
+];
+
 // 程序入口
 function main(config) {
   const proxyCount = config?.proxies?.length ?? 0;
@@ -109,163 +277,9 @@ function main(config) {
     "stack": "mixed",
     "dns-hijack": ["any:53"]
   };
-
-  // 覆盖策略组
-  config["proxy-groups"] = [
-    {
-      ...groupBaseOption,
-      "name": "🚀 手动切换",
-      "type": "select",
-      "include-all": true,
-      "exclude-filter": "(?i)应急|剩余|过期",
-      "proxies": ["♻️ 自动切换"],
-      "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "♻️ 自动切换",
-      "type": "url-test",
-      "tolerance": 50,
-      "include-all": true,
-      "exclude-filter": "(?i).*\\*.*|应急|剩余|过期",
-      "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "💬 AI",
-      "type": "select",
-      "proxies": proxiesNode,
-      "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "🐱 GitHub",
-      "type": "select",
-      "proxies": proxiesNode,
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "🔍 谷歌服务",
-      "type": "select",
-      "proxies": proxiesNode,
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "🍎 苹果服务",
-      "type": "select",
-      "proxies": proxiesNode,
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "Ⓜ️ 微软服务",
-      "type": "select",
-      "proxies": proxiesNode,
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "📱 电报消息",
-      "type": "select",
-      "proxies": proxiesNode,
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "🌍 国外网站",
-      "type": "select",
-      "proxies": proxiesNode,
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "🎮 游戏平台",
-      "type": "select",
-      "proxies": proxiesNode,
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "🛑 广告拦截",
-      "type": "select",
-      "proxies": ["REJECT", "DIRECT"],
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "🐟 漏网之鱼",
-      "type": "select",
-      "proxies": proxiesNode,
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png"
-    },
-    // 地区分组
-    {
-      ...groupBaseOption,
-      ...regionBaseOption,
-      "name": "🇭🇰 香港节点",
-      "filter": "(?i)🇭🇰|香港|(\b(HK|Hong)\b)",
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
-    },
-    {
-      ...groupBaseOption,
-      ...regionBaseOption,
-      "name": "🇼🇸 台湾节点",
-      "filter": "(?i)🇨🇳｜🇼🇸|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)",
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
-    },
-    {
-      ...groupBaseOption,
-      ...regionBaseOption,
-      "name": "🇯🇵 日本节点",
-      "filter": "(?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)",
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
-    },
-    {
-      ...groupBaseOption,
-      ...regionBaseOption,
-      "name": "🇸🇬 新加坡节点",
-      "filter": "(?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)",
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
-    },
-    {
-      ...groupBaseOption,
-      ...regionBaseOption,
-      "name": "🇲🇾 马来西亚节点",
-      "filter": "(?i)🇲🇾|马来西亚|马|(\b(MY|Malaysia)\b)",
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Malaysia.png"
-    },
-    {
-      ...groupBaseOption,
-      ...regionBaseOption,
-      "name": "🇰🇷 韩国节点",
-      "filter": "(?i)🇰🇷|韩国|(\b(KR|Korea)\b)",
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
-    },
-    {
-      ...groupBaseOption,
-      ...regionBaseOption,
-      "name": "🇺🇸 美国节点",
-      "filter": "(?i)🇺🇸|美国|(\b(US|United States)\b)",
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
-    },
-    {
-      ...groupBaseOption,
-      ...regionBaseOption,
-      "name": "🇬🇧 英国节点",
-      "filter": "(?i)🇬🇧|英国|(\b(UK|United Kingdom)\b)",
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
-    },
-    {
-      ...groupBaseOption,
-      ...regionBaseOption,
-      "name": "🐂 自建节点",
-      "filter": "(?i)自建|self|(\b(Self|Self-built)\b)",
-      "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Ox.png"
-    }
-
-  ];
+  
+  // 合并策略组和地区分组节点
+  config["proxy-groups"] = [...proxyGroups, ...proxyRegion];
 
   // 覆盖规则集
   config["rule-providers"] = {
@@ -375,7 +389,7 @@ function main(config) {
     "RULE-SET,OneDrive,Ⓜ️ 微软服务",
     "RULE-SET,Microsoft,Ⓜ️ 微软服务",
     "GEOSITE,cn,DIRECT",
-    "GEOIP,CN,DIRECT",    
+    "GEOIP,CN,DIRECT",
     "RULE-SET,ProxyGFW,🌍 国外网站",
     "GEOSITE,geolocation-!cn,🌍 国外网站",
     "MATCH,🐟 漏网之鱼"
