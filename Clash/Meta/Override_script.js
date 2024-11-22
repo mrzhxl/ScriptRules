@@ -1,4 +1,4 @@
-// 最后更新时间: 2024-11-03
+// 最后更新时间: 2024-11-22
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -25,6 +25,8 @@ const regionBaseOption = {
   "strategy": "round-robin",
   "tolerance": 0,
   "include-all": true,
+  // 防止某些软件节点分组，正则未匹配到任何节点时报错
+  "proxies": ["DIRECT"],
 }
 
 // 代理节点
@@ -42,7 +44,7 @@ const proxiesNode = [
   "DIRECT"
 ];
 
-// 策略组
+// 代理组
 proxyGroups = [
   {
     ...groupBaseOption,
@@ -135,14 +137,13 @@ proxyGroups = [
 
 ];
 
-// 地区分组
-proxyRegion = [
+// 节点地区分组
+nodeAreaGroup = [
   {
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇭🇰 香港节点",
     "filter": "(?i)🇭🇰|香港|(\b(HK|Hong)\b)",
-    "proxies": ["DIRECT"],
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
   },
   {
@@ -150,7 +151,6 @@ proxyRegion = [
     ...regionBaseOption,
     "name": "🇼🇸 台湾节点",
     "filter": "(?i)🇨🇳｜🇼🇸|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)",
-    "proxies": ["DIRECT"],
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
   },
   {
@@ -158,7 +158,6 @@ proxyRegion = [
     ...regionBaseOption,
     "name": "🇯🇵 日本节点",
     "filter": "(?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)",
-    "proxies": ["DIRECT"],
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
   },
   {
@@ -166,7 +165,6 @@ proxyRegion = [
     ...regionBaseOption,
     "name": "🇸🇬 新加坡节点",
     "filter": "(?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)",
-    "proxies": ["DIRECT"],
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
   },
   {
@@ -174,7 +172,6 @@ proxyRegion = [
     ...regionBaseOption,
     "name": "🇲🇾 马来西亚节点",
     "filter": "(?i)🇲🇾|马来西亚|马|(\b(MY|Malaysia)\b)",
-    "proxies": ["DIRECT"],
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Malaysia.png"
   },
   {
@@ -182,7 +179,6 @@ proxyRegion = [
     ...regionBaseOption,
     "name": "🇰🇷 韩国节点",
     "filter": "(?i)🇰🇷|韩国|(\b(KR|Korea)\b)",
-    "proxies": ["DIRECT"],
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
   },
   {
@@ -190,7 +186,6 @@ proxyRegion = [
     ...regionBaseOption,
     "name": "🇺🇸 美国节点",
     "filter": "(?i)🇺🇸|美国|(\b(US|United States)\b)",
-    "proxies": ["DIRECT"],
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
   },
   {
@@ -205,7 +200,6 @@ proxyRegion = [
     ...regionBaseOption,
     "name": "🐂 自建节点",
     "filter": "(?i)自建|self|(\b(Self|Self-built)\b)",
-    "proxies": ["DIRECT"],
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Ox.png"
   }
 ];
@@ -279,7 +273,7 @@ function main(config) {
   };
   
   // 合并策略组和地区分组节点
-  config["proxy-groups"] = [...proxyGroups, ...proxyRegion];
+  config["proxy-groups"] = [...proxyGroups, ...nodeAreaGroup];
 
   // 覆盖规则集
   config["rule-providers"] = {
