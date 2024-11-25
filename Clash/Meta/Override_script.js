@@ -1,4 +1,4 @@
-// 最后更新时间: 2024-11-22
+// 最后更新时间: 2024-11-25
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -302,11 +302,11 @@ function main(config) {
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Telegram.list",
       "path": "./rule-providers/Telegram.list"
     },
-    "Telegram_ip": {
-      ...ruleProviderCommon,
-      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Telegram_ip.list",
-      "path": "./rule-providers/Telegram_ip.list"
-    },
+    // "Telegram_ip": {
+    //   ...ruleProviderCommon,
+    //   "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Telegram_ip.list",
+    //   "path": "./rule-providers/Telegram_ip.list"
+    // },
     "Steam": {
       ...ruleProviderCommon,
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Steam.list",
@@ -357,11 +357,11 @@ function main(config) {
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Microsoft.list",
       "path": "./rule-providers/Microsoft.list"
     },
-    "ProxyGFW": {
-      ...ruleProviderCommon,
-      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/ProxyGFW.list",
-      "path": "./rule-providers/ProxyGFW.list"
-    },
+    // "ProxyGFW": {
+    //   ...ruleProviderCommon,
+    //   "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/ProxyGFW.list",
+    //   "path": "./rule-providers/ProxyGFW.list"
+    // },
   };
 
   // 覆盖规则
@@ -375,7 +375,7 @@ function main(config) {
     "RULE-SET,YouTube,🔍 谷歌服务",
     "RULE-SET,Google,🔍 谷歌服务",
     "RULE-SET,Telegram,📱 电报消息",
-    "RULE-SET,Telegram_ip,📱 电报消息",
+    // "RULE-SET,Telegram_ip,📱 电报消息",
     "RULE-SET,Steam,🎮 游戏平台",
     "RULE-SET,Epic,🎮 游戏平台",
     "RULE-SET,Game,🎮 游戏平台",
@@ -384,7 +384,7 @@ function main(config) {
     "RULE-SET,Microsoft,Ⓜ️ 微软服务",
     "GEOSITE,cn,DIRECT",
     "GEOIP,CN,DIRECT",
-    "RULE-SET,ProxyGFW,🌍 国外网站",
+    // "RULE-SET,ProxyGFW,🌍 国外网站",
     "GEOSITE,geolocation-!cn,🌍 国外网站",
     "MATCH,🐟 漏网之鱼"
   ];
