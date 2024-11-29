@@ -66,7 +66,7 @@ proxyGroups = [
   },
   {
     ...groupBaseOption,
-    "name": "💬 AI",
+    "name": "🤖 AI",
     "type": "select",
     "proxies": proxiesNode,
     "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png"
