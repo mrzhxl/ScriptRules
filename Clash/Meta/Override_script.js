@@ -1,4 +1,4 @@
-// 最后更新时间: 2024-11-25
+// 最后更新时间: 2024-11-30
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -25,8 +25,6 @@ const regionBaseOption = {
   "strategy": "round-robin",
   "tolerance": 0,
   "include-all": true,
-  // 防止某些软件节点分组，正则未匹配到任何节点时报错
-  "proxies": ["DIRECT"],
 }
 
 // 代理节点
@@ -233,10 +231,6 @@ function main(config) {
     "fake-ip-filter": ["*", "+.lan", "+.local", "+.direct"],
     "nameserver": ["223.5.5.5", "119.29.29.29", "180.184.1.1"],
   };
-  // 删除 hosts 配置
-  if (config.hasOwnProperty('hosts')) {
-    delete config['hosts'];
-  }
 
   // 覆盖 geodata 配置
   config["geodata-mode"] = true;
