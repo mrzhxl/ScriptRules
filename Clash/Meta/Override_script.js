@@ -357,10 +357,10 @@ function main(config) {
   // 覆盖规则
   config["rules"] = [
     "RULE-SET,Advertising,🛑 广告拦截",
-    "RULE-SET,OpenAI,💬 AI",
-    "RULE-SET,Gemini,💬 AI",
-    "RULE-SET,Copilot,💬 AI",
-    "RULE-SET,Claude,💬 AI",
+    "RULE-SET,OpenAI,🤖 AI",
+    "RULE-SET,Gemini,🤖 AI",
+    "RULE-SET,Copilot,🤖 AI",
+    "RULE-SET,Claude,🤖 AI",
     "RULE-SET,Apple,🍎 苹果服务",
     "RULE-SET,YouTube,🔍 谷歌服务",
     "RULE-SET,Google,🔍 谷歌服务",
