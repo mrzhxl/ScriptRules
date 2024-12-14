@@ -1,4 +1,4 @@
-// 最后更新时间: 2024-11-30
+// 最后更新时间: 2024-12-14
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -271,10 +271,30 @@ function main(config) {
 
   // 覆盖规则集
   config["rule-providers"] = {
-    "Advertising": {
+    "BanAD": {
       ...ruleProviderCommon,
-      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Advertising.list",
-      "path": "./rule-providers/Advertising.list"
+      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanAD.list",
+      "path": "./rule-providers/BanAD.list"
+    },
+    "BanEasyList": {
+      ...ruleProviderCommon,
+      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanEasyList.list",
+      "path": "./rule-providers/BanEasyList.list"
+    },
+    "BanEasyListChina": {
+      ...ruleProviderCommon,
+      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanEasyListChina.list",
+      "path": "./rule-providers/BanEasyListChina.list"
+    },
+    "BanEasyPrivacy": {
+      ...ruleProviderCommon,
+      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanEasyPrivacy.list",
+      "path": "./rule-providers/BanEasyPrivacy.list"
+    },
+    "BanProgramAD": {
+      ...ruleProviderCommon,
+      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanProgramAD.list",
+      "path": "./rule-providers/BanProgramAD.list"
     },
     "Apple": {
       ...ruleProviderCommon,
@@ -350,7 +370,11 @@ function main(config) {
 
   // 覆盖规则
   config["rules"] = [
-    "RULE-SET,Advertising,🛑 广告拦截",
+    "RULE-SET,BanAD,🛑 广告拦截",
+    "RULE-SET,BanEasyList,🛑 广告拦截",
+    "RULE-SET,BanEasyListChina,🛑 广告拦截",
+    "RULE-SET,BanEasyPrivacy,🛑 广告拦截",
+    "RULE-SET,BanProgramAD,🛑 广告拦截",
     "RULE-SET,OpenAI,🤖 AI",
     "RULE-SET,Gemini,🤖 AI",
     "RULE-SET,Copilot,🤖 AI",
