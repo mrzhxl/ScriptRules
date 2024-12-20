@@ -1,4 +1,4 @@
-// 最后更新时间: 2024-12-14
+// 最后更新时间: 2024-12-20
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -235,10 +235,10 @@ function main(config) {
   // 覆盖 geodata 配置
   config["geodata-mode"] = true;
   config["geox-url"] = {
-    "geoip": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat",
-    "geosite": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat",
-    "mmdb": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb",
-    "asn": "https://ghp.ci/https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
+    "geoip": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat",
+    "geosite": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat",
+    "mmdb": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb",
+    "asn": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/geoip/release/GeoLite2-ASN.mmdb"  
   };
 
   // 覆盖 sniffer 配置
