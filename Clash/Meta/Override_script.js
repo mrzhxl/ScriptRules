@@ -141,7 +141,7 @@ nodeAreaGroup = [
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇭🇰 香港节点",
-    "filter": "(?i)🇭🇰|香港|HK|Hong)",
+    "filter": "(?i)🇭🇰|香港|HK|Hong",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
   },
   {
