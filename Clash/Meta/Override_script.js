@@ -1,4 +1,4 @@
-// 最后更新时间: 2024-12-20
+// 最后更新时间: 2025-01-04
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -141,63 +141,63 @@ nodeAreaGroup = [
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇭🇰 香港节点",
-    "filter": "(?i)🇭🇰|香港|(\b(HK|Hong)\b)",
+    "filter": "(?i)🇭🇰|香港|HK|Hong)",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
   },
   {
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇼🇸 台湾节点",
-    "filter": "(?i)🇨🇳｜🇼🇸|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)",
+    "filter": "(?i)🇨🇳｜🇼🇸|🇹🇼|台湾|TW|Tai|Taiwan",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
   },
   {
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇯🇵 日本节点",
-    "filter": "(?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)",
+    "filter": "(?i)🇯🇵|日本|东京|JP|Japan",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
   },
   {
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇸🇬 新加坡节点",
-    "filter": "(?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)",
+    "filter": "(?i)🇸🇬|新加坡|狮|SG|Singapore",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
   },
   {
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇲🇾 马来西亚节点",
-    "filter": "(?i)🇲🇾|马来西亚|马|(\b(MY|Malaysia)\b)",
+    "filter": "(?i)🇲🇾|马来西亚|马|MY|Malaysia",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Malaysia.png"
   },
   {
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇰🇷 韩国节点",
-    "filter": "(?i)🇰🇷|韩国|(\b(KR|Korea)\b)",
+    "filter": "(?i)🇰🇷|韩国|KR|Korea",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
   },
   {
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇺🇸 美国节点",
-    "filter": "(?i)🇺🇸|美国|(\b(US|United States)\b)",
+    "filter": "(?i)🇺🇸|美国|US|United States",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
   },
   {
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇬🇧 英国节点",
-    "filter": "(?i)🇬🇧|英国|(\b(UK|United Kingdom)\b)",
+    "filter": "(?i)🇬🇧|英国|UK|United Kingdom",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
   },
   {
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "✨ 自建节点",
-    "filter": "(?i)自建|self|(\b(Self|Self-built)\b)",
+    "filter": "(?i)自建|Self",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Magic.png"
   }
 ];
