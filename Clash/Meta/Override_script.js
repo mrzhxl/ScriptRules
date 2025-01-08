@@ -1,4 +1,4 @@
-// 最后更新时间: 2025-01-04
+// 最后更新时间: 2025-01-08
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -38,7 +38,6 @@ const proxiesNode = [
   "🇰🇷 韩国节点",
   "🇺🇸 美国节点",
   "🇬🇧 英国节点",
-  "✨ 自建节点",
   "DIRECT"
 ];
 
@@ -192,13 +191,6 @@ nodeAreaGroup = [
     "name": "🇬🇧 英国节点",
     "filter": "(?i)🇬🇧|英国|UK|United Kingdom",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
-  },
-  {
-    ...groupBaseOption,
-    ...regionBaseOption,
-    "name": "✨ 自建节点",
-    "filter": "(?i)自建|Self",
-    "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Magic.png"
   }
 ];
 
