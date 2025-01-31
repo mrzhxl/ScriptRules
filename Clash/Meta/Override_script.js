@@ -48,7 +48,6 @@ proxyGroups = [
     "name": "🚀 手动切换",
     "type": "select",
     "include-all": true,
-    "exclude-filter": "(?i)应急|剩余|过期",
     "proxies": ["♻️ 自动切换"],
     "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
   },
@@ -58,7 +57,7 @@ proxyGroups = [
     "type": "url-test",
     "tolerance": 50,
     "include-all": true,
-    "exclude-filter": "(?i).*\\*.*|应急|剩余|过期",
+    "exclude-filter": "(?i).*\\*.*|应急|剩余|过期|测试|traffic|expire",
     "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png"
   },
   {
@@ -189,7 +188,7 @@ nodeAreaGroup = [
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇺🇸 美国节点",
-    "filter": "(?i)🇺🇸|美国|US|United States",
+    "filter": "(?i)🇺🇸|美国|USA|United States",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
   },
   {
