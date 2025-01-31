@@ -1,4 +1,4 @@
-// 最后更新时间: 2025-01-04
+// 最后更新时间: 2025-01-31
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -49,7 +49,6 @@ proxyGroups = [
     "name": "🚀 手动切换",
     "type": "select",
     "include-all": true,
-    "exclude-filter": "(?i)应急|剩余|过期",
     "proxies": ["♻️ 自动切换"],
     "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
   },
@@ -59,7 +58,7 @@ proxyGroups = [
     "type": "url-test",
     "tolerance": 50,
     "include-all": true,
-    "exclude-filter": "(?i).*\\*.*|应急|剩余|过期",
+    "exclude-filter": "(?i).*\\*.*|应急|剩余|过期|traffic|expire",
     "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png"
   },
   {
