@@ -182,7 +182,7 @@ nodeAreaGroup = [
     ...groupBaseOption,
     ...regionBaseOption,
     "name": "🇺🇸 美国节点",
-    "filter": "(?i)🇺🇸|美国|US|United States",
+    "filter": "(?i)🇺🇸|美国|USA|United States",
     "icon": "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
   },
   {
