@@ -1,4 +1,4 @@
-// 最后更新时间: 2025-01-31
+// 最后更新时间: 2025-03-09
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -58,8 +58,15 @@ proxyGroups = [
     "type": "url-test",
     "tolerance": 50,
     "include-all": true,
-    "exclude-filter": "(?i).*\\*.*|应急|剩余|过期|traffic|expire",
+    "exclude-filter": "(?i).*\\*.*|应急|剩余|过期|测试|traffic|expire",
     "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png"
+  },
+  {
+    ...groupBaseOption,
+    "name": "🕊 推特服务",
+    "type": "select",
+    "proxies": proxiesNode,
+    "icon": "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Twitter.png"
   },
   {
     ...groupBaseOption,
@@ -365,6 +372,11 @@ function main(config) {
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Microsoft.list",
       "path": "./rule-providers/Microsoft.list"
     },
+   "Twitter": {
+      ...ruleProviderCommon,
+      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Twitter.list",
+      "path": "./rule-providers/Twitter.list"
+    }, 
   };
 
   // 覆盖规则
@@ -374,6 +386,7 @@ function main(config) {
     "RULE-SET,BanEasyListChina,🛑 广告拦截",
     "RULE-SET,BanEasyPrivacy,🛑 广告拦截",
     "RULE-SET,BanProgramAD,🛑 广告拦截",
+    "RULE-SET,Twitter,🕊 推特服务",
     "RULE-SET,OpenAI,🤖 AI",
     "RULE-SET,Gemini,🤖 AI",
     "RULE-SET,Copilot,🤖 AI",
