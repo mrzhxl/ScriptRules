@@ -235,7 +235,7 @@ function main(config) {
     "enhanced-mode": "fake-ip",
     "fake-ip-range": "198.18.0.1/16",
     "fake-ip-filter": ["*", "+.lan", "+.local", "+.direct"],
-    "nameserver": ["tls://1.12.12.12", "223.5.5.5", "180.184.1.1"],
+    "nameserver": ["tls://1.12.12.12", "tls://223.5.5.5", "180.184.1.1"],
   };
 
   // 覆盖 geodata 配置
