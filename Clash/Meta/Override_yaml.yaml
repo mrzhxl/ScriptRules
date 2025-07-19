@@ -1,0 +1,320 @@
+# 最后更新时间: 2025-03-30
+
+# General Configuration
+mixed-port: 7890
+tcp-concurrent: true
+allow-lan: true
+ipv6: false
+log-level: info
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+# DNS Configuration
+dns:
+  enable: true
+  listen: 127.0.0.1:1053
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    - "+.local"
+    - "+.direct"
+  nameserver:
+    - tls://1.12.12.12
+    - tls://223.5.5.5
+    - 180.184.1.1
+
+# GeoData Configuration
+geodata-mode: true
+geox-url:
+  geoip: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat
+  geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+  mmdb: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb
+  asn: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/GeoLite2-ASN.mmdb
+
+# Sniffer Configuration
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  sniff:
+    TLS:
+      ports:
+        - "443"
+        - "8443"
+    HTTP:
+      ports:
+        - "80"
+        - "8080-8880"
+      override-destination: true
+    QUIC:
+      ports:
+        - "443"
+        - "8443"
+
+# TUN Configuration
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack:
+    - "any:53"
+
+## Proxy Groups
+
+# Define common group options as an anchor
+group-base-option: &group-base-option
+  interval: 300
+  url: "https://www.gstatic.com/generate_204"
+  max-failed-times: 3
+
+# Define common region group options as an anchor
+region-base-option: &region-base-option
+  behavior: classical
+  type: load-balance
+  strategy: round-robin
+  tolerance: 0
+  include-all: true
+
+# Define proxy nodes as an anchor for reuse
+proxies-node: &proxies-node
+  - "🚀 手动切换"
+  - "🇭🇰 香港节点"
+  - "🇼🇸 台湾节点"
+  - "🇯🇵 日本节点"
+  - "🇸🇬 新加坡节点"
+  - "🇲🇾 马来西亚节点"
+  - "🇰🇷 韩国节点"
+  - "🇺🇸 美国节点"
+  - "🇬🇧 英国节点"
+  - "✨ 自建节点"
+  - "DIRECT"
+
+proxy-groups:
+  - <<: *group-base-option # Merge common group options
+    name: "🚀 手动切换"
+    type: select
+    include-all: true
+    proxies:
+      - "♻️ 自动切换"
+    icon: "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png"
+  - <<: *group-base-option
+    name: "♻️ 自动切换"
+    type: url-test
+    tolerance: 50
+    include-all: true
+    exclude-filter: "(?i).*\\*.*|应急|剩余|过期|测试|traffic|expire"
+    icon: "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png"
+  - <<: *group-base-option
+    name: "🕊 推特服务"
+    type: select
+    proxies: *proxies-node # Reference the common proxy nodes
+    icon: "https://raw.githubusercontent.com/Orz-3/mini/master/Color/Twitter.png"
+  - <<: *group-base-option
+    name: "🤖 AI"
+    type: select
+    proxies: *proxies-node
+    icon: "https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png"
+  - <<: *group-base-option
+    name: "🐱 GitHub"
+    type: select
+    proxies: *proxies-node
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png"
+  - <<: *group-base-option
+    name: "🔍 谷歌服务"
+    type: select
+    proxies: *proxies-node
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png"
+  - <<: *group-base-option
+    name: "🍎 苹果服务"
+    type: select
+    proxies: *proxies-node
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png"
+  - <<: *group-base-option
+    name: "Ⓜ️ 微软服务"
+    type: select
+    proxies: *proxies-node
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png"
+  - <<: *group-base-option
+    name: "📱 电报消息"
+    type: select
+    proxies: *proxies-node
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png"
+  - <<: *group-base-option
+    name: "🌍 国外网站"
+    type: select
+    proxies: *proxies-node
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
+  - <<: *group-base-option
+    name: "🎮 游戏平台"
+    type: select
+    proxies: *proxies-node
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png"
+  - <<: *group-base-option
+    name: "🛑 广告拦截"
+    type: select
+    proxies:
+      - "REJECT"
+      - "DIRECT"
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png"
+  - <<: *group-base-option
+    name: "🐟 漏网之鱼"
+    type: select
+    proxies: *proxies-node
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png"
+  - <<: [*group-base-option, *region-base-option] # Merge both common options
+    name: "🇭🇰 香港节点"
+    filter: "(?i)🇭🇰|香港|HK|Hong"
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
+  - <<: [*group-base-option, *region-base-option]
+    name: "🇼🇸 台湾节点"
+    filter: "(?i)🇨🇳｜🇼🇸|🇹🇼|台湾|TW|Tai|Taiwan"
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
+  - <<: [*group-base-option, *region-base-option]
+    name: "🇯🇵 日本节点"
+    filter: "(?i)🇯🇵|日本|东京|JP|Japan"
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
+  - <<: [*group-base-option, *region-base-option]
+    name: "🇸🇬 新加坡节点"
+    filter: "(?i)🇸🇬|新加坡|狮|SG|Singapore"
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
+  - <<: [*group-base-option, *region-base-option]
+    name: "🇲🇾 马来西亚节点"
+    filter: "(?i)🇲🇾|马来西亚|马|MY|Malaysia"
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Malaysia.png"
+  - <<: [*group-base-option, *region-base-option]
+    name: "🇰🇷 韩国节点"
+    filter: "(?i)🇰🇷|韩国|KR|Korea"
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
+  - <<: [*group-base-option, *region-base-option]
+    name: "🇺🇸 美国节点"
+    filter: "(?i)🇺🇸|美国|USA|United States"
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
+  - <<: [*group-base-option, *region-base-option]
+    name: "🇬🇧 英国节点"
+    filter: "(?i)🇬🇧|英国|UK|United Kingdom"
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
+  - <<: [*group-base-option, *region-base-option]
+    name: "✨ 自建节点"
+    filter: "(?i)自建|Self"
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Magic.png"
+
+## Rule Providers
+
+# Define common rule provider options as an anchor
+rule-provider-common: &rule-provider-common
+  behavior: classical
+  type: http
+  format: text
+  interval: 86400
+
+rule-providers:
+  BanAD:
+    <<: *rule-provider-common # Merge common rule provider options
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanAD.list
+    path: ./rule-providers/BanAD.list
+  BanEasyList:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanEasyList.list
+    path: ./rule-providers/BanEasyList.list
+  BanEasyListChina:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanEasyListChina.list
+    path: ./rule-providers/BanEasyListChina.list
+  BanEasyPrivacy:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanEasyPrivacy.list
+    path: ./rule-providers/BanEasyPrivacy.list
+  BanProgramAD:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/BanProgramAD.list
+    path: ./rule-providers/BanProgramAD.list
+  Apple:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Apple.list
+    path: ./rule-providers/Apple.list
+  Google:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Google.list
+    path: ./rule-providers/Google.list
+  YouTube:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/YouTube.list
+    path: ./rule-providers/YouTube.list
+  Telegram:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Telegram.list
+    path: ./rule-providers/Telegram.list
+  Steam:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Steam.list
+    path: ./rule-providers/Steam.list
+  Epic:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Epic.list
+    path: ./rule-providers/Epic.list
+  Game:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Game.list
+    path: ./rule-providers/Game.list
+  OpenAI:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/OpenAI.list
+    path: ./rule-providers/OpenAI.list
+  Gemini:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Gemini.list
+    path: "./rule-providers/Gemini.list"
+  Copilot:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Copilot.list
+    path: ./rule-providers/Copilot.list
+  Claude:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Claude.list
+    path: ./rule-providers/Claude.list
+  OneDrive:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/OneDrive.list
+    path: ./rule-providers/OneDrive.list
+  Github:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Github.list
+    path: ./rule-providers/Github.list
+  Microsoft:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Microsoft.list
+    path: ./rule-providers/Microsoft.list
+  Twitter:
+    <<: *rule-provider-common
+    url: https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Twitter.list
+    path: ./rule-providers/Twitter.list
+
+
+## Rules
+
+rules:
+  - RULE-SET,BanAD,🛑 广告拦截
+  - RULE-SET,BanEasyList,🛑 广告拦截
+  - RULE-SET,BanEasyListChina,🛑 广告拦截
+  - RULE-SET,BanEasyPrivacy,🛑 广告拦截
+  - RULE-SET,BanProgramAD,🛑 广告拦截
+  - RULE-SET,Twitter,🕊 推特服务
+  - RULE-SET,OpenAI,🤖 AI
+  - RULE-SET,Gemini,🤖 AI
+  - RULE-SET,Copilot,🤖 AI
+  - RULE-SET,Claude,🤖 AI
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,YouTube,🔍 谷歌服务
+  - RULE-SET,Google,🔍 谷歌服务
+  - RULE-SET,Telegram,📱 电报消息
+  - RULE-SET,Steam,🎮 游戏平台
+  - RULE-SET,Epic,🎮 游戏平台
+  - RULE-SET,Game,🎮 游戏平台
+  - RULE-SET,Github,🐱 GitHub
+  - RULE-SET,OneDrive,Ⓜ️ 微软服务
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - GEOSITE,cn,DIRECT
+  - GEOIP,CN,DIRECT
+  - GEOSITE,geolocation-!cn,🌍 国外网站
+  - MATCH,🐟 漏网之鱼
