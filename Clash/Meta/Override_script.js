@@ -401,9 +401,9 @@ function main(config) {
     "RULE-SET,Github,🐱 GitHub",
     "RULE-SET,OneDrive,Ⓜ️ 微软服务",
     "RULE-SET,Microsoft,Ⓜ️ 微软服务",
-    "GEOSITE,cn,DIRECT",
+    "GEOSITE,CN,DIRECT",
     "GEOIP,CN,DIRECT",
-    "GEOSITE,geolocation-!cn,🌍 国外网站",
+    "GEOSITE,NOTCN,🌍 国外网站",
     "MATCH,🐟 漏网之鱼"
   ];
 
