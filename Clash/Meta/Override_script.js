@@ -218,7 +218,7 @@ function main(config) {
   }
 
   // 覆盖通用配置
-  config["mixed-port"] = "7890";
+  config["mixed-port"] = 7890;
   config["tcp-concurrent"] = true;
   config["allow-lan"] = true;
   config["ipv6"] = false;
