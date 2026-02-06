@@ -403,7 +403,7 @@ function main(config) {
     "RULE-SET,Microsoft,Ⓜ️ 微软服务",
     "GEOSITE,CN,DIRECT",
     "GEOIP,CN,DIRECT",
-    "GEOSITE,NOTCN,🌍 国外网站",
+    // "GEOSITE,NOTCN,🌍 国外网站",
     "MATCH,🐟 漏网之鱼"
   ];
 
