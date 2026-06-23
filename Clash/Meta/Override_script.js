@@ -357,6 +357,11 @@ function main(config) {
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Claude.list",
       "path": "./rule-providers/Claude.list"
     },
+    "Kiro": {
+      ...ruleProviderCommon,
+      "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/Kiro.list",
+      "path": "./rule-providers/Kiro.list"
+    },
     "OneDrive": {
       ...ruleProviderCommon,
       "url": "https://raw.githubusercontent.com/mrzhxl/ScriptRules/main/Clash/Meta/Rules/OneDrive.list",
@@ -391,6 +396,7 @@ function main(config) {
     "RULE-SET,Gemini,🤖 AI",
     "RULE-SET,Copilot,🤖 AI",
     "RULE-SET,Claude,🤖 AI",
+    "RULE-SET,Kiro,🤖 AI",
     "RULE-SET,Apple,🍎 苹果服务",
     "RULE-SET,YouTube,🔍 谷歌服务",
     "RULE-SET,Google,🔍 谷歌服务",
