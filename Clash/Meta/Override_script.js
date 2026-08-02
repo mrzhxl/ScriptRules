@@ -1,4 +1,4 @@
-// 最后更新时间: 2025-03-30
+// 最后更新时间: 2026-08-02
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -234,8 +234,11 @@ function main(config) {
     "ipv6": false,
     "enhanced-mode": "fake-ip",
     "fake-ip-range": "198.18.0.1/16",
-    "fake-ip-filter": ["*", "+.lan", "+.local", "+.direct"],
-    "nameserver": ["tls://1.12.12.12", "tls://223.5.5.5", "180.184.1.1"],
+    "fake-ip-filter-mode": "blacklist",
+    "fake-ip-filter": ["*.lan", "+.local", "+.direct"],
+    "default-nameserver": ["223.5.5.5", "119.29.29.29"],
+    "nameserver": ["https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"],
+    "proxy-server-nameserver": ["https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"],
   };
 
   // 覆盖 geodata 配置
